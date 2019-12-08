@@ -2,8 +2,7 @@ import javafx.stage.Stage
 import tornadofx.App
 import tornadofx.launch
 
-
-class Application: App(){
+class AESTextApp : App(){
     override val primaryView = AESText::class
 
     override fun start(stage: Stage) {
@@ -13,5 +12,5 @@ class Application: App(){
 }
 
 fun main(args: Array<String>) {
-    launch<Application>(args)
+    launch<AESTextApp>(args)
 }

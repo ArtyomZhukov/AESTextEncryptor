@@ -35,13 +35,13 @@ class AESText : View() {
     }
 
     private fun String.encrypt(password: String) = Base64.getEncoder().encodeToString(
-            getCipher(password, Cipher.ENCRYPT_MODE)
-                    .doFinal(this.toByteArray()))
+        getCipher(password, Cipher.ENCRYPT_MODE)
+            .doFinal(this.toByteArray()))
 
 
     private fun String.decrypt(password: String) = String(
-            getCipher(password, Cipher.DECRYPT_MODE)
-                    .doFinal(Base64.getDecoder().decode(this)))
+        getCipher(password, Cipher.DECRYPT_MODE)
+            .doFinal(Base64.getDecoder().decode(this)))
 
 
     private fun getCipher(pass: String, mode: Int): Cipher {
@@ -56,7 +56,7 @@ class AESText : View() {
         val iv = ByteArray(16)
         val charArray = password.toCharArray()
 
-        for (i in 0 until charArray.size)
+        for (i in charArray.indices)
             iv[i] = charArray[i].toByte()
 
         val ivParameterSpec = IvParameterSpec(iv)
